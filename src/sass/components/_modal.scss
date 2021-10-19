@@ -1,0 +1,204 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  z-index: 10;
+  opacity: 1;
+  transition: opacity $anim-duration $anim-timing;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: visible;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+// @media screen and (min-width: 320px) {
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 480px;
+  max-height: 520px;
+
+  background-color: $white-color;
+
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform $anim-duration $anim-timing;
+}
+
+.backdrop-close {
+  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  color: $main-color;
+  background-color: $white-color;
+  transition: color $anim-duration $anim-timing;
+  outline: none;
+
+  &__icon svg {
+    fill: $main-color;
+  }
+
+  &:hover &__icon,
+  &:focus &__icon {
+    fill: $accent-color;
+  }
+}
+
+.order-form {
+  padding: 40px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 0.08em;
+    margin-top: 0px;
+    margin-bottom: 12px;
+
+    color: $main-color;
+  }
+
+  &__label {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.43;
+    align-items: left;
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+
+    color: $third-color;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.43;
+    align-items: center;
+    letter-spacing: 0.08em;
+    max-width: 320px;
+    height: 40px;
+    outline: none;
+    border: 1px solid $main-color;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-left: 42px;
+    transition: border-color $anim-duration $anim-timing;
+  }
+
+  &__modal-icon {
+    position: absolute;
+    transform: translateX(50%) translateY(60%);
+    justify-content: left;
+    align-items: center;
+    fill: $main-color;
+    transition: color $anim-duration $anim-timing;
+  }
+
+  &__input-wrapper:focus-within > &__modal-icon {
+    fill: $accent-color;
+  }
+  &__input-wrapper:focus-within > &__input {
+    border-color: $accent-color;
+  }
+
+  &__button {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50px;
+    min-width: 200px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 32px;
+    border-width: 0px;
+    border-radius: 4px;
+
+    background-color: $accent-color;
+    border: solid 2px $accent-color;
+    color: $white-color;
+    transition: background-color $anim-duration $anim-timing, color $anim-duration $anim-timing;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $accent-color;
+      background-color: $white-color;
+    }
+  }
+
+  &__comment {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    display: flex;
+    flex-direction: column;
+    resize: none;
+    width: 320px;
+    height: 60px;
+    margin-bottom: 20px;
+    padding: 12px 16px 12px 16px;
+    outline: none;
+    border: 1px solid $main-color;
+    box-sizing: border-box;
+    border-radius: 4px;
+    color: $third-color;
+  }
+
+  &__comment:focus-within {
+    border-color: $accent-color;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 480px) {
+  .modal {
+    max-width: 320px;
+  }
+
+  .order-form__comment {
+    width: 240px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .order-form__input {
+    max-width: 400px;
+  }
+
+  .order-form__comment {
+    width: 400px;
+  }
+}

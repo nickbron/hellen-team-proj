@@ -1,0 +1,44 @@
+.logo {
+  display: inline-flex;
+  flex-direction: column;
+  margin-right: 144px;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1.23;
+  letter-spacing: 0.04em;
+  color: #111518;
+}
+
+.menu__logo {
+  color: $white-color;
+}
+
+.hellEN {
+  display: flex;
+}
+
+.logo__icon {
+  margin: 0 4px;
+}
+
+.logo__text {
+  display: inline;
+  text-align: center;
+  font-weight: bold;
+  font-size: 8px;
+  line-height: 1.25;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #111518;
+}
+
+.menu-logo__text {
+  color: $white-color;
+}
+
+.logo__text2 {
+  @extend .logo__text;
+  display: inline;
+  color: $accent-color;
+}
